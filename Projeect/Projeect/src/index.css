@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #040A1D;
+    --bg-card: #0E1B38;
+    --color-primary: #2563EB;
+    --color-cyan: #21BEDC;
+    --color-success: #33BE87;
+    --color-warning: #F5A548;
+    --color-critical: #EF5860;
+    --color-muted: #99A8C3;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: #F8FAFC;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Glassmorphism Design Tokens */
+.glass-card {
+  background: rgba(14, 27, 56, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(33, 190, 220, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(33, 190, 220, 0.45);
+  box-shadow: 0 12px 40px 0 rgba(33, 190, 220, 0.15);
+}
+
+.glass-nav {
+  background: rgba(4, 10, 29, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(33, 190, 220, 0.2);
+}
+
+/* Radar & Pulse Animations */
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 0.2; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+@keyframes sos-glow {
+  0%, 100% { box-shadow: 0 0 25px rgba(239, 88, 96, 0.6), 0 0 50px rgba(239, 88, 96, 0.3); }
+  50% { box-shadow: 0 0 50px rgba(239, 88, 96, 0.9), 0 0 80px rgba(239, 88, 96, 0.5); }
+}
+
+.animate-radar {
+  animation: radar-sweep 4s linear infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-sos-pulse {
+  animation: sos-glow 1.5s ease-in-out infinite;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #040A1D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0E1B38;
+  border-radius: 4px;
+  border: 1px solid rgba(33, 190, 220, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563EB;
+}
